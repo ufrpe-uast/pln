@@ -1,7 +1,7 @@
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
-# nuvem : [string] -> WordCloud
+# nuvem : string|bytes -> WordCloud
 def nuvem(words):
     n = WordCloud(width=1280, height=720).generate(words)
     return n
