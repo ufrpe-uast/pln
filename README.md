@@ -22,3 +22,9 @@ Baixe as dependências
 ```
 pip install -r requirements.txt
 ```
+
+Para baixar o nltk_data, abra o interpretador python e digite
+```
+>>> import nltk
+>>> nltk.download()
+```
