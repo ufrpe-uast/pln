@@ -14,3 +14,13 @@ sw.append('maria')
 print(pp.rem_stopwords("esta frase esteja e um teste não maria", sw))
 
 print(pp.rem_acentos("olá são às êvõras dizíamos caça única do herói"))
+
+print(pp.stemming("E teile" +
+" Quicadinha" +
+" E zaga" +
+" Jogou" +
+" E Teile" +
+" Dança do Pombo" +
+" Trocada de Braço" +
+" Quicada Lateral" +
+" E zaga"))

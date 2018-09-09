@@ -1,6 +1,7 @@
 import re
 from nltk.tokenize.treebank import TreebankWordTokenizer
 from nltk.corpus import stopwords
+from nltk.stem import RSLPStemmer
 
 # tokenizar_string : string -> function -> [string]
 def tokenizar_string(string, tokenizer=TreebankWordTokenizer()):
@@ -32,3 +33,9 @@ def rem_acentos(string):
     string = re.sub(r"(ç)", r"c", string)
 
     return string
+
+# stemming : string -> function -> [string]
+def stemming(string, stemmer=RSLPStemmer()):
+    tokens = tokenizar_string(string)
+
+    return [stemmer.stem(t) for t in tokens]
