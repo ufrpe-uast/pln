@@ -12,3 +12,5 @@ print(pp.rem_stopwords("esta frase esteja e um teste não maria"))
 sw = stopwords.words('portuguese')
 sw.append('maria')
 print(pp.rem_stopwords("esta frase esteja e um teste não maria", sw))
+
+print(pp.rem_acentos("olá são às êvõras dizíamos caça única do herói"))
