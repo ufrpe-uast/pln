@@ -39,3 +39,10 @@ def stemming(string, stemmer=RSLPStemmer()):
     tokens = tokenizar_string(string)
 
     return [stemmer.stem(t) for t in tokens]
+
+# rem_regexp : [regexp] -> string -> string
+def rem_regexp(regexps, texto):
+    for r in regexps:
+        texto = re.sub(r, "", texto)
+
+    return texto
