@@ -2,6 +2,7 @@ from sklearn.cross_validation import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 
+# classificar : [string] -> [string] -> string -> ?modelo -> float -> {}
 def classificar(opinioes, polaridades, frase, modelo=MultinomialNB(), ts=.3):
     # XXX: module cross_validation esta depreciada
     dados_teste, dados_val, pols_teste, pols_val = train_test_split(opinioes, polaridades, test_size=ts)

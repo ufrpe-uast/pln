@@ -1,2 +1,5 @@
 venv/
 *.pyc
+tags
+tags.lock
+tags.temp

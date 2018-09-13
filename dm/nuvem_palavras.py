@@ -3,11 +3,12 @@ import matplotlib.pyplot as plt
 
 # nuvem : string|bytes -> WordCloud
 def nuvem(words):
-    n = WordCloud(width=1280, height=720).generate(words)
+    n = WordCloud(width=1920, height=1080).generate(words)
     return n
 
 # mostrar_nuvem : WordCloud -> ()
 def mostrar_nuvem(n):
-    plt.figure(figsize=(16,9))
+    plt.figure()
     plt.imshow(n)
+    plt.axis("off")
     plt.show()
