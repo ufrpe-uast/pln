@@ -3,6 +3,12 @@ from nltk.tokenize.treebank import TreebankWordTokenizer
 from nltk.corpus import stopwords
 from nltk.stem import RSLPStemmer
 
+# regexes uteis
+regexes = [ r"@[\w]+" # mentions
+          , r"#[\w]+" # hashtags
+          , r"\w+:(\/?\/?)[^\s]+" # urls
+          ]
+
 # tokenizar_string : string -> function -> [string]
 def tokenizar_string(string, tokenizer=TreebankWordTokenizer()):
     return tokenizer.tokenize(string)
