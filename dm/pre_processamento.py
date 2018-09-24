@@ -46,3 +46,18 @@ def rem_regexp(regexps, texto):
         texto = re.sub(r, "", texto)
 
     return texto
+
+def rem_emojis(texto):
+    # https://stackoverflow.com/questions/33404752/removing-emojis-from-a-string-in-python
+    # XXX: Nem todos os emojis são removidos. Isso pq esses ranges são de versões mais antigas. Adicionar mais ranges.
+    # https://www.unicode.org/emoji/charts-11.0/emoji-list.html
+    emoji_pattern = re.compile("["
+        "\U0001F600-\U0001F64F"  # emoticons
+        "\U0001F300-\U0001F5FF"  # symbols & pictographs
+        "\U0001F680-\U0001F6FF"  # transport & map symbols
+        "\U0001F1E0-\U0001F1FF"  # flags (iOS)
+        "\U00002702-\U000027B0"
+        "\U000024C2-\U0001F251"
+                           "]+", flags=re.UNICODE)
+
+    return emoji_pattern.sub(r'', texto)
