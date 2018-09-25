@@ -2,7 +2,7 @@ import re
 from nltk.tokenize.treebank import TreebankWordTokenizer
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-from nltk.stem import PorterStemmer
+from nltk.stem import RSLPStemmer
 
 # regexes uteis
 regexes = [ r"@[\w]+" # mentions
@@ -42,7 +42,7 @@ def rem_acentos(string):
     return string
 
 # stemming : string -> function -> [string]
-def stemming(string, stemmer=PorterStemmer()):
+def stemming(string, stemmer=RSLPStemmer()):
     tokens = word_tokenize(string)
 
     return [stemmer.stem(t) for t in tokens]

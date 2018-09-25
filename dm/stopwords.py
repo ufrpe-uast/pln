@@ -317,7 +317,6 @@ portugues = [
     "numas",
     "nunca",
     "nuns",
-    "não",
     "nível",
     "nós",
     "número",
