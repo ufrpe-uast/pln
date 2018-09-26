@@ -8,7 +8,6 @@ from nltk.tokenize import word_tokenize, RegexpTokenizer
 
 from sklearn.metrics import accuracy_score
 
-# dataset = pd.read_csv('/home/d/data/coleta/ciro.csv', sep='|', usecols=['opiniao', 'polaridade'])
 dataset = pd.read_csv('/home/d/data/opinioes.csv', usecols=['opiniao', 'polaridade'])
 
 opinioes = dataset['opiniao'].values
@@ -30,14 +29,22 @@ stem = [' '.join(pp.stemming(o)) for o in opinioespp]
 # word token
 tokens = [word_tokenize(o) for o in opinioespp]
 
-res = cl.classificar(stem, polaridades, pp.stemming('tá na cara que é o melhor candidato'))
+ops_teste = pd.read_csv('/home/d/data/coleta/marina.csv', sep='|')
 
-if res['pols_pred_teste'][0] == 1:
-    print('Positivo')
-elif res['pols_pred_teste'][0] == 2:
-    print('Negativo')
-else:
-    print('Invalido')
+ops_teste = ops_teste['opiniao'].values
 
-acc = accuracy_score(res['pols_val'], res['pols_pred_val']) * 100
-print('Acuracia: {0:.2f} %'.format(acc))
+print(ops_teste)
+
+for op in ops_teste:
+    pre_pro = pp.stemming(pp.rem_regexp(pp.regexes, pp.rem_emojis(op)))
+    if len(pre_pro) > 1:
+        res = cl.classificar(stem, polaridades, pre_pro)
+
+        acc = accuracy_score(res['pols_val'], res['pols_pred_val']) * 100
+
+        if res['pols_pred_teste'][0] == 1:
+            print('{0:.2f}% - Positivo: {1}'.format(acc, op))
+        elif res['pols_pred_teste'][0] == 2:
+            print('{0:.2f}% - Negativo: {1}'.format(acc, op))
+        else:
+            print('Invalido')
